@@ -1,10 +1,11 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 210 50% 98%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -13,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 220 65% 36%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -22,8 +23,8 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 225 80% 61%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -35,19 +36,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -97,5 +91,79 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .debate-card {
+    @apply bg-white rounded-lg shadow-md p-6 border border-gray-100;
+  }
+  
+  .debate-btn {
+    @apply px-6 py-3 rounded-md font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .debate-btn-primary {
+    @apply debate-btn bg-debate-blue text-white hover:bg-debate-navy focus:ring-debate-blue;
+  }
+  
+  .debate-btn-secondary {
+    @apply debate-btn bg-white text-debate-blue border border-debate-blue hover:bg-debate-gray focus:ring-debate-blue;
+  }
+  
+  .debate-btn-accent {
+    @apply debate-btn bg-debate-accent text-white hover:bg-blue-600 focus:ring-debate-accent;
+  }
+  
+  .debate-btn-danger {
+    @apply debate-btn bg-debate-timer text-white hover:bg-red-700 focus:ring-debate-timer;
+  }
+
+  .debate-input {
+    @apply px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-debate-blue focus:border-transparent;
+  }
+
+  .debate-team-pro {
+    @apply text-debate-pro font-medium;
+  }
+
+  .debate-team-con {
+    @apply text-debate-con font-medium;
+  }
+  
+  .avatar-speaking {
+    @apply ring-2 ring-debate-accent ring-offset-2 animate-ping-slow;
+  }
+  
+  .transcript-container {
+    @apply h-64 overflow-y-auto bg-white border border-gray-200 rounded-md p-4;
+  }
+
+  .transcript-bubble {
+    @apply my-2 p-3 rounded-lg max-w-[80%] animate-slide-in;
+  }
+  
+  .transcript-bubble-user {
+    @apply transcript-bubble bg-debate-lightblue text-debate-navy ml-auto;
+  }
+  
+  .transcript-bubble-ai {
+    @apply transcript-bubble bg-debate-gray text-debate-navy;
+  }
+  
+  .transcript-bubble-system {
+    @apply transcript-bubble bg-debate-navy text-white mx-auto;
+  }
+  
+  .timer-normal {
+    @apply text-debate-blue;
+  }
+  
+  .timer-warning {
+    @apply text-amber-500;
+  }
+  
+  .timer-danger {
+    @apply text-debate-timer animate-pulse;
   }
 }
